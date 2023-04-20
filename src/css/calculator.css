@@ -1,0 +1,17 @@
+.calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calculator-div {
+  display: flex;
+  flex-flow: row wrap;
+  width: 400px;
+  height: 250px;
+  justify-content: space-between;
+  align-content: space-between;
+}
+button {
+  width: 90px;
+  height: 40px;
+}
