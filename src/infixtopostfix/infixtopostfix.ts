@@ -23,7 +23,7 @@ export const infixToPostfix = (s: Array<string>) => {
       st.pop();
     }
 
-    //If an operator is scanned
+    //If an operator is scanned test pr
     else {
       while (st.length !== 0 && prec(s[i]) <= prec(st[st.length - 1])) {
         result.push(st[st.length - 1]);
