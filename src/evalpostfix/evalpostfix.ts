@@ -21,5 +21,5 @@ export const evalpostfix = (expression: Array<string>) => {
       st.push(parseFloat(a));
     }
   }
-  return st.pop();
+  return Number(st.pop()?.toPrecision(12));
 };

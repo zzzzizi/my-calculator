@@ -7,7 +7,7 @@ import { Screen } from './components/screen';
 function App() {
   return (
     <div className="App">
-      <div>calculator</div>
+      <div className="calculator-d">calculator</div>
       <Screen />
       <Calculator />
     </div>

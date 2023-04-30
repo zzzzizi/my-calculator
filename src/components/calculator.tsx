@@ -1,9 +1,19 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { show, add, calculate, initialize } from '../features/calculatorSlice';
+import {
+  show,
+  add,
+  calculate,
+  initialize,
+  increasebracket,
+  decreasebracket,
+} from '../features/calculatorSlice';
 import '../css/calculator.css';
+import { RootState } from '../store/store';
+//import { useInitial } from '../helpers/iscalculate';
 
 export const Calculator = () => {
+  const formula = useSelector((state: RootState) => state.calculator.formula);
   const dispatch = useDispatch();
   const [num, setNum] = useState('');
 
@@ -12,10 +22,19 @@ export const Calculator = () => {
       <div className="calculator-div">
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
+              if (num !== '') {
+                dispatch(add(num));
+                dispatch(add('*'));
+                setNum('');
+              } else if (!isNaN(parseFloat(formula[formula.length - 1]))) {
+                dispatch(add('*'));
+              }
               dispatch(show('('));
 
               dispatch(add('('));
+              dispatch(increasebracket());
             }}
           >
             (
@@ -23,11 +42,15 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(show(')'));
-              dispatch(add(num));
+              if (num !== '') {
+                dispatch(add(num));
+                setNum('');
+              }
               dispatch(add(')'));
-              setNum('');
+              dispatch(decreasebracket());
             }}
           >
             )
@@ -35,11 +58,15 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(show('%'));
-              dispatch(add(num));
-              dispatch(add('%'));
-              setNum('');
+              if (num !== '') {
+                dispatch(add(num));
+                setNum('');
+              }
+              dispatch(add('/'));
+              dispatch(add('100'));
             }}
           >
             %
@@ -47,6 +74,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(initialize());
               setNum('');
@@ -57,6 +85,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('7'));
               setNum(num + '7');
@@ -67,6 +96,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('8'));
               setNum(num + '8');
@@ -77,6 +107,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('9'));
               setNum(num + '9');
@@ -87,11 +118,14 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(show('/'));
-              dispatch(add(num));
+              if (num !== '') {
+                dispatch(add(num));
+                setNum('');
+              }
               dispatch(add('/'));
-              setNum('');
             }}
           >
             /
@@ -99,6 +133,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('4'));
               setNum(num + '4');
@@ -109,6 +144,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('5'));
               setNum(num + '5');
@@ -119,6 +155,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('6'));
               setNum(num + '6');
@@ -129,11 +166,14 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(show('*'));
-              dispatch(add(num));
+              if (num !== '') {
+                dispatch(add(num));
+                setNum('');
+              }
               dispatch(add('*'));
-              setNum('');
             }}
           >
             *
@@ -141,6 +181,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('1'));
               setNum(num + '1');
@@ -151,6 +192,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('2'));
               setNum(num + '2');
@@ -161,6 +203,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('3'));
               setNum(num + '3');
@@ -171,11 +214,24 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(show('-'));
-              dispatch(add(num));
-              dispatch(add('-'));
-              setNum('');
+              if (num !== '') {
+                dispatch(add(num));
+                setNum('');
+                dispatch(add('-'));
+              } else if (formula[formula.length - 1] === ')') {
+                dispatch(add('-'));
+              } else if (formula[formula.length - 1] === '/') {
+                dispatch(add('-1'));
+                dispatch(add('/'));
+              } else if (!isNaN(parseFloat(formula[formula.length - 1]))) {
+                dispatch(add('-'));
+              } else {
+                dispatch(add('-1'));
+                dispatch(add('*'));
+              }
             }}
           >
             -
@@ -183,6 +239,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('0'));
               setNum(num + '0');
@@ -193,6 +250,7 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-nunber-button"
             onClick={() => {
               dispatch(show('.'));
               setNum(num + '.');
@@ -203,9 +261,9 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               num !== '' && dispatch(add(num));
-              dispatch(show('='));
               dispatch(calculate());
               setNum('');
             }}
@@ -215,11 +273,14 @@ export const Calculator = () => {
         </div>
         <div>
           <button
+            className="calculator-button"
             onClick={() => {
               dispatch(show('+'));
-              dispatch(add(num));
+              if (num !== '') {
+                dispatch(add(num));
+                setNum('');
+              }
               dispatch(add('+'));
-              setNum('');
             }}
           >
             +
