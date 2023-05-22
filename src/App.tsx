@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import { Calculator } from './components/calculator';
-import { Screen } from './components/screen';
+import { Calculator } from './calculator/calculator';
+import { Screen } from './screen/screen';
 
 function App() {
   return (

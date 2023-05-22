@@ -1,0 +1,42 @@
+.calculator-d {
+  font-size: 40px;
+}
+.formula-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.formulaframe {
+  width: 400px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(156, 156, 156);
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.formula {
+  position: relative;
+  width: 370px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  padding-right: 30px;
+}
+.formula-div {
+  display: flex;
+}
+.bracket {
+  color: rgb(143, 143, 143);
+}
+.result {
+  display: flex;
+
+  height: 22px;
+  width: 370px;
+  justify-content: end;
+  padding-right: 30px;
+}
