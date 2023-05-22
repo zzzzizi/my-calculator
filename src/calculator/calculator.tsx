@@ -8,7 +8,7 @@ import {
   increasebracket,
   decreasebracket,
 } from '../features/calculatorSlice';
-import '../css/calculator.css';
+import './calculator.css';
 import { RootState } from '../store/store';
 //import { useInitial } from '../helpers/iscalculate';
 

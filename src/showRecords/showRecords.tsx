@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { useOutsideClick } from '../hooks/outsideclick';
+import './showRecords.css';
 //import { forwardRef } from 'react';
 
 // export const ShowRecords = forwardRef<

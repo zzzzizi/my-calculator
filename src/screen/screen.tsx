@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
-import '../css/screen.css';
-import { RecordsButton } from './screenRecordsbutton';
+import './screen.css';
+import { RecordsButton } from '../screenRecordsbutton/screenRecordsbutton';
 
 export const Screen = () => {
   const formula = useSelector((state: RootState) => state.calculator.showexp);

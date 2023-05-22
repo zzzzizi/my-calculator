@@ -1,0 +1,26 @@
+.records-container {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 220px;
+  height: 90px;
+  box-shadow: 2px 2px 5px rgba(7, 7, 7, 0.1);
+  background-color: rgb(248, 248, 248);
+  border-radius: 10px;
+  animation: all ease-in-out 2s;
+}
+.records-p {
+  display: flex;
+  margin-top: 3px;
+  margin-left: 7px;
+  margin-bottom: 3px;
+  font-size: 9px;
+}
+.records-p:hover {
+  cursor: pointer;
+}
+.records-div {
+  width: inherit;
+  height: 60px;
+  overflow: auto;
+}
