@@ -13,26 +13,20 @@ export const Screen = () => {
   const bracket = useSelector((state: RootState) => state.calculator.bracket);
   const showexp = formula.join('');
   return (
-    <div>
-      <div className="formula-container">
-        <div className="formulaframe">
-          <div className="formula">
-            <div>
-              <RecordsButton />
-            </div>
-            <div className="formula-div">
-              <div>{showexp}</div>
-              {bracket[0] &&
-                bracket.map((item, index) => (
-                  <div key={index} className="bracket">
-                    {item}
-                  </div>
-                ))}
-            </div>
-          </div>
-          <div className="result">{result}</div>
+    <div className="screen">
+      <div className="screen__top">
+        <RecordsButton />
+        <div className="screen__formula">
+          <div>{showexp}</div>
+          {bracket[0] &&
+            bracket.map((item, index) => (
+              <div key={index} className="screen__bracket">
+                {item}
+              </div>
+            ))}
         </div>
       </div>
+      <div className="screen__down">{result}</div>
     </div>
   );
 };

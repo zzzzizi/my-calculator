@@ -6,8 +6,8 @@ import { Screen } from './screen/screen';
 
 function App() {
   return (
-    <div className="App">
-      <div className="calculator-d">calculator</div>
+    <div className="app">
+      <div className="tittle">calculator</div>
       <Screen />
       <Calculator />
     </div>
