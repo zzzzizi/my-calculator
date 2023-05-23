@@ -38,6 +38,6 @@ export const infixToPostfix = (s: Array<string>) => {
     result.push(st[st.length - 1]);
     st.pop();
   }
-  console.log(result);
+
   return result;
 };

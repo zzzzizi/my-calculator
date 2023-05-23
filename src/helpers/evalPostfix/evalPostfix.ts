@@ -3,7 +3,6 @@ export const evalpostfix = (expression: Array<string>) => {
 
   for (let i = 0; i < expression.length; i++) {
     let a = expression[i];
-    console.log(st);
 
     if (a === '+') {
       st.push((st.pop() ?? 0) + (st?.pop() ?? 0));
