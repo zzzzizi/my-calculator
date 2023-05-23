@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ShowRecords } from '../showRecords/showRecords';
-import './screenRecordsbutton.css';
+import './screenRecordsButton.css';
 //import { useOutsideClick } from '../hooks/outsideclick';
 
 export const RecordsButton = () => {
