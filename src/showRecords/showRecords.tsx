@@ -39,11 +39,11 @@ export const ShowRecords = (props: {
   const ref = useOutsideClick(handleClickOutside);
   if (props.toggle) {
     return (
-      <div className="records-container" ref={ref}>
-        <p className="records-p" onClick={() => props.setToggle(false)}>
+      <div className="records" ref={ref}>
+        <p className="records__title" onClick={() => props.setToggle(false)}>
           records
         </p>
-        <div className="records-div">
+        <div className="records__details">
           {records.map((record, index) => (
             <div key={index}>{record}</div>
           ))}

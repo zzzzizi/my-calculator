@@ -13,7 +13,7 @@ export const RecordsButton = () => {
   return (
     <div>
       <button
-        className="records"
+        className="btn__records"
         onClick={(e) => {
           e.stopPropagation();
           setToggle(true);
