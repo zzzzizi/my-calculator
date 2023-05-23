@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import calculatorSlice from '../features/calculatorSlice';
-import { initialCalculate } from '../helpers/iscalculate';
+import { initialCalculate } from './middleware/initialCalculate';
 
 export const store = configureStore({
   reducer: {

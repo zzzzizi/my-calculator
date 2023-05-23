@@ -1,4 +1,4 @@
-import { initialize } from '../features/calculatorSlice';
+import { initialize } from '../../features/calculatorSlice';
 import { Middleware } from '@reduxjs/toolkit';
 
 export const initialCalculate: Middleware = (store) => (next) => (action) => {
