@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
 import './screen.css';
-import { RecordsButton } from '../screenRecordsbutton/screenRecordsbutton';
+import { RecordsButton } from '../screenRecordsButton/screenRecordsButton';
 
 export const Screen = () => {
   const formula = useSelector((state: RootState) => state.calculator.showexp);

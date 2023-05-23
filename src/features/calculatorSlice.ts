@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { infixToPostfix } from '../helpers/infixtopostfix/infixtopostfix';
-import { evalpostfix } from '../helpers/evalpostfix/evalpostfix';
+import { infixToPostfix } from '../helpers/infixToPostfix/infixToPostfix';
+import { evalpostfix } from '../helpers/evalPostfix/evalPostfix';
 
 export interface State {
   formula: Array<string>;
