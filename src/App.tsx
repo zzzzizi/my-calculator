@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './App.css';
+import './app.css';
 import { Calculator } from './calculator/calculator';
 import { Screen } from './screen/screen';
 
